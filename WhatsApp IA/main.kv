@@ -1,0 +1,769 @@
+
+<Tab>:
+	do_default_tab: False
+	# COMMON CONTENT GOES HERE !!
+
+
+	
+Screen:
+	ScreenManager:
+		id : screen_manager
+		
+		Screen: 
+			name: 'VideoBienvenida'
+			Videos:
+				id: video10
+				source: 'pruebas.mp4'
+				MDTopAppBar:
+					id: toolbar_Video_reproductor1
+					pos_hint: {'bottom': True}
+					md_bg_color: (0, 0, 0, 1)
+					right_action_items: [['arrow-right', lambda x : app.change_screen('home screen', curr = 'back')]]
+		
+		Screen:
+			name: 'home screen'
+			BoxLayout:
+				orientation: 'vertical'
+				MDTopAppBar:
+					title: 'WhatsApp'
+					pos_hint: {'top': True}
+					#left_action_items : [['menu', lambda x: print(x)]]
+					right_action_items : [['magnify', lambda x: print(x)], ['dots-vertical', lambda x : print(x)]]
+				MDTabs:	
+					Tab:			
+						# INDIVIDUAL TABS CONTENT GOES HERE !!
+						title: 'CHATS'
+						ScrollView:
+							MDList:
+								TwoLineAvatarListItem:
+									text: 'Juan Chacin'
+									secondary_text: 'Que fue bro'
+									on_press:
+										app.change_screen('chat screen', title = self.text)
+									ImageLeftWidget:
+										source: "avatar1.png"
+								TwoLineAvatarListItem:
+									text: 'Daniel'
+									secondary_text: 'LOL !'
+									on_press:
+										app.change_screen('chat screen', title = self.text)
+									ImageLeftWidget:
+										source: "avatar2.png"
+								TwoLineAvatarListItem:
+									text: 'Adam sandler'
+									secondary_text: 'Que fue'
+									on_press:
+										app.change_screen('chat screen', title = self.text)
+									ImageLeftWidget:
+										source: "avatar3.png"
+								TwoLineAvatarListItem:
+									text: 'Andrew garfield'
+									secondary_text: 'Como quedo mi actuacion en spider-man'
+									on_press:
+										app.change_screen('chat screen', title = self.text)
+									ImageLeftWidget:
+										source: "avatar4.png"
+								TwoLineAvatarListItem:
+									text: 'Margot Robie'
+									secondary_text: 'Holaa como estas'
+									on_press:
+										app.change_screen('chat screen', title = self.text)
+									ImageLeftWidget:
+										source: "avatar16.png"
+								TwoLineAvatarListItem:
+									text: 'Brad Pitt'
+									secondary_text: 'Te gusto mi ultima pelicula con bad bunny?'
+									on_press:
+										app.change_screen('chat screen', title = self.text)
+									ImageLeftWidget:
+										source: "avatar5.png"
+								TwoLineAvatarListItem:
+									text: 'Channie Tatum'
+									secondary_text: 'que onda wey'
+									on_press:
+										app.change_screen('chat screen', title = self.text)
+									ImageLeftWidget:
+										source: "avatar6.png"
+								TwoLineAvatarListItem:
+									text: 'leonardo Dicaprio'
+									secondary_text: 'Al fin me dieron el oscar por el titanic'
+									on_press:
+										app.change_screen('chat screen', title = self.text)
+									ImageLeftWidget:
+										source: "avatar17.png"
+								TwoLineAvatarListItem:
+									text: 'Chris Hemsworth'
+									secondary_text: 'Ya estamos rodando Thor 5'
+									on_press:
+										app.change_screen('chat screen', title = self.text)
+									ImageLeftWidget:
+										source: "avatar7.png"
+								TwoLineAvatarListItem:
+									text: 'Natalie Portman'
+									secondary_text: 'Me veo vieja en Thor 4'
+									on_press:
+										app.change_screen('chat screen', title = self.text)
+									ImageLeftWidget:
+										source: "avatar8.png"
+								TwoLineAvatarListItem:
+									text: 'Ryan Gosling'
+									secondary_text: 'Me duele el stomago'
+									on_press:
+										app.change_screen('chat screen', title = self.text)
+									ImageLeftWidget:
+										source: "avatar9.png"
+								TwoLineAvatarListItem:
+									text: 'Tom Cruise'
+									secondary_text: 'Ya estoy viejo chamo'
+									on_press:
+										app.change_screen('chat screen', title = self.text)
+									ImageLeftWidget:
+										source: "avatar10.png"
+								TwoLineAvatarListItem:
+									text: 'Will Smith'
+									secondary_text: 'El principe del rap es mi mejor casting en la television!!'
+									on_press:
+										app.change_screen('chat screen', title = self.text)
+									ImageLeftWidget:
+										source: "avatar11.png"
+								TwoLineAvatarListItem:
+									text: 'Edgar Ramirez'
+									secondary_text: 'Soy el unico actor Venezolano en HOLLYWOOD, yuju'
+									on_press:
+										app.change_screen('chat screen', title = self.text)
+									ImageLeftWidget:
+										source: "avatar12.png"
+								TwoLineAvatarListItem:
+									text: 'Emma Stone'
+									secondary_text: 'No me devieron matar en spiderman vs electro :( '
+									on_press:
+										app.change_screen('chat screen', title = self.text)
+									ImageLeftWidget:
+										source: "avatar13.png"
+								TwoLineAvatarListItem:
+									text: 'Gal Gadot'
+									secondary_text: 'Todavia cuando me saludan me dicen que tal mujer maravilla :/ '
+									on_press:
+										app.change_screen('chat screen', title = self.text)
+									ImageLeftWidget:
+										source: "avatar14.png"
+								TwoLineAvatarListItem:
+									text: 'Jennifer Aniston'
+									secondary_text: 'Yo soy como el vino, ya saben el dicho'
+									on_press:
+										app.change_screen('chat screen', title = self.text)
+									ImageLeftWidget:
+										source: "avatar15.png"
+						FloatLayout:
+							
+							MDFloatingActionButton:
+								md_bg_color : (0.145, 0.827, 0.4, 1)
+								text_color : (1, 1, 1, 1)
+								icon : 'message-reply-text'
+								size : 45, 45
+								pos: root.width - 1.38*self.width,  root.y + self.height//0.6
+								
+								on_press:
+									app.change_screen('select contact')
+							MDFloatingActionButtonSpeedDial:
+								id: speed_dial
+								data: app.data
+								root_button_anim: True
+								icon: 'IA10.jpg'
+								size: 60, 60
+								label_text_color: 'black'
+								hint_animation: True
+								closing_time: 0.3
+								
+								 
+								
+					Tab:
+						# INDIVIDUAL TABS CONTENT GOES HERE !!
+						title: 'ESTADOS'
+						ScrollView:
+							MDList:
+								TwoLineAvatarListItem:
+									text : 'Mi estado'
+									secondary_text : 'Tap to add status update'
+									ImageLeftWidget:
+										source: 'avatar1.png'
+								OneLineListItem:
+									text : 'Recent updates'
+								TwoLineAvatarListItem:
+									text : 'Daniel'
+									secondary_text : 'Today, 9:30 pm'
+									ImageLeftWidget:
+										source: 'avatar2.png'
+								TwoLineAvatarListItem:
+									text : 'Andrew Garfield'
+									secondary_text : 'Today, 12:40 pm'
+									ImageLeftWidget:
+										source: 'avatar4.png'
+								TwoLineAvatarListItem:
+									text : 'Jennifer Aniston'
+									secondary_text : 'Today, 9:30 pm'
+									ImageLeftWidget:
+										source: 'avatar15.png'
+								TwoLineAvatarListItem:
+									text : 'Will Smith'
+									secondary_text : 'Today, 5:00 pm'
+									ImageLeftWidget:
+										source: 'avatar11.png'
+								TwoLineAvatarListItem:
+									text : 'Edgar Ramirez'
+									secondary_text : 'Today, 2:00 pm'
+									ImageLeftWidget:
+										source: 'avatar12.png'
+								OneLineListItem:
+									text : 'Viewed updates'
+								TwoLineAvatarListItem:
+									text : 'Chris Hemsworth'
+									secondary_text : 'Today, 8:30 pm'
+									ImageLeftWidget:
+										source: 'avatar7.png'
+								TwoLineAvatarListItem:
+									text : 'Tom Cruise'
+									secondary_text : 'Today, 6:45 pm'
+									ImageLeftWidget:
+										source: 'avatar10.png'
+								TwoLineAvatarListItem:
+									text : 'Ryan Gosling'
+									secondary_text : 'Today, 9:10 pm'
+									ImageLeftWidget:
+										source: 'avatar9.png'
+								TwoLineAvatarListItem:
+									text : 'Adam Sandler'
+									secondary_text : 'Today, 3:30 pm'
+									ImageLeftWidget:
+										source: 'avatar3.png'
+								TwoLineAvatarListItem:
+									text : 'Emma Stone'
+									secondary_text : 'Today, 12:35 pm'
+									ImageLeftWidget:
+										source: 'avatar13.png'
+								TwoLineAvatarListItem:
+									text : 'Leonardo Dicaprio'
+									secondary_text : 'Today, 2:25 pm'
+									ImageLeftWidget:
+										source: 'avatar17.png'
+
+						FloatLayout:
+							MDFloatingActionButton:
+								md_bg_color : (0.145, 0.827, 0.4, 1)
+								text_color : (1, 1, 1, 1)
+								icon : 'camera'
+								size : 50, 50
+								pos : root.width - 1.5*self.width, root.y + self.height//2
+								on_press:
+									print('click picture')
+							MDFloatingActionButton:
+								md_bg_color : (0.925, 0.898, 0.866, 1)
+								text_color : app.theme_cls.primary_dark
+								icon : 'pen'
+								size: 43.5, 43.5
+								pos : root.width - 1.5*self.width, root.y + 3.35*self.height//2
+								on_press:
+									#print('update status')
+									app.change_screen('update status')			
+					Tab:
+						# INDIVIDUAL TABS CONTENT GOES HERE !!
+						title: 'CALLS'
+						ScrollView:
+							MDList:
+								TwoLineAvatarIconListItem:
+									text : 'Juan Chacin'
+									secondary_text : '30 March,8:53 PM'
+									ImageLeftWidget:
+										source: 'avatar1.png'
+									IconRightWidget:
+										icon : 'phone'
+										theme_text_color : 'Custom'
+										text_color : (18/255, 140/255, 126/255, 1)
+								TwoLineAvatarIconListItem:
+									text : 'Will Smith'
+									secondary_text : '30 March,8:53 PM'
+									ImageLeftWidget:
+										source: 'avatar11.png'
+									IconRightWidget:
+										icon : 'phone'
+										theme_text_color : 'Custom'
+										text_color : (18/255, 140/255, 126/255, 1)
+								TwoLineAvatarIconListItem:
+									text : 'Jennifer Aniston'
+									secondary_text : '25 March, 4:10 PM'
+									ImageLeftWidget:
+										source: 'avatar15.png'
+									IconRightWidget:
+										icon : 'phone'
+										theme_text_color : 'Custom'
+										text_color : (18/255, 140/255, 126/255, 1)
+								TwoLineAvatarIconListItem:
+									text : 'Daniel'
+									secondary_text : '25 March,3:49 PM'
+									ImageLeftWidget:
+										source: 'avatar2.png'
+									IconRightWidget:
+										icon : 'phone'
+										theme_text_color : 'Custom'
+										text_color : (18/255, 140/255, 126/255, 1)
+								TwoLineAvatarIconListItem:
+									text : 'tom Cruise'
+									secondary_text : '18 March, 3:10 PM'
+									ImageLeftWidget:
+										source: 'avatar10.png'
+									IconRightWidget:
+										icon : 'phone'
+										theme_text_color : 'Custom'
+										text_color : (18/255, 140/255, 126/255, 1)
+								TwoLineAvatarIconListItem:
+									text : 'Margot Robbie'
+									secondary_text : '17 March,8:53 PM'
+									ImageLeftWidget:
+										source: 'avatar16.png'
+									IconRightWidget:
+										icon : 'phone'
+										theme_text_color : 'Custom'
+										text_color : (18/255, 140/255, 126/255, 1)
+								TwoLineAvatarIconListItem:
+									text : 'Adam Sandler'
+									secondary_text : '15 March, 9:00 AM'
+									ImageLeftWidget:
+										source: 'avatar3.png'
+									IconRightWidget:
+										icon : 'phone'
+										theme_text_color : 'Custom'
+										text_color : (18/255, 140/255, 126/255, 1)
+								
+						FloatLayout:
+							MDFloatingActionButton:
+								md_bg_color : (0.145, 0.827, 0.4, 1)
+								text_color : (1, 1, 1, 1)
+								icon : 'call-made'
+								size : 45, 45
+								pos : root.width - 1.5*self.width, root.y + self.height//2
+								on_press:
+									app.change_screen('select contact2')
+
+		Screen:
+			name : 'update status'
+			FloatLayout:
+				canvas:
+					Color:
+						rgb: (0.4, 0.2, 0.5)
+					Rectangle:
+						size : self.size
+						pos : self.pos
+				MDIconButton:
+					icon : 'keyboard-backspace'
+					md_bg_color : (0.4, 0.2, 0.5, 1)
+					theme_text_color : 'Custom'
+					text_color : (1, 1, 1, 1)
+					size_hint: (None, None)
+					pos_hint : {'top' : True}
+					on_press:
+						app.change_screen('home screen', 'back')
+				MDLabel:
+					text : 'Type a status'
+					halign: 'center'
+					theme_text_color : 'Custom'
+					text_color : (1, 1, 1, 1)
+					font_size: '25sp'
+				MDList:
+					OneLineIconListItem:
+						md_bg_color : (0.5, 0.5, 0.8, 1)
+						text : 'Status (Custom)'
+						theme_text_color : 'Custom'
+						text_color : (1, 1, 1, 1)
+						pos_hint: {'bottom': True}
+						IconLeftWidget:	
+							icon : 'chevron-right'
+							theme_text_color : 'Custom'
+							text_color : (1, 1, 1, 1)
+				MDIconButton:
+					icon : 'emoticon-excited'
+					md_bg_color : (0.4, 0.2, 0.5, 1)
+					theme_text_color : 'Custom'
+					text_color : (1, 1, 1, 1)
+					#size_hint: (None, None)
+					pos : root.x + self.width, root.y + 0.8*self.height
+				MDIconButton:
+					icon : 'format-text'
+					md_bg_color : (0.4, 0.2, 0.5, 1)
+					theme_text_color : 'Custom'
+					text_color : (1, 1, 1, 1)
+					#size_hint: (None, None)
+					pos : root.x + 2*self.width, root.y + 0.8*self.height
+				MDIconButton:
+					icon : 'palette'
+					md_bg_color : (0.4, 0.2, 0.5, 1)
+					theme_text_color : 'Custom'
+					text_color : (1, 1, 1, 1)
+					#size_hint: (None, None)
+					pos : root.x + 3*self.width, root.y + 0.8*self.height
+
+		Screen:
+			name : 'select contact2'	
+			BoxLayout:
+				orientation : 'vertical'
+				MDTopAppBar:
+					id : toolbar2
+					pos_hint : {'top' : True}
+					title : 'Select contact'
+					left_action_items : [['keyboard-backspace', lambda x : app.change_screen('home screen', 'back')]]
+					right_action_items : [['magnify', lambda x : print('search')], ['dots-vertical', lambda x : print('vertical-dots')]]
+				ScrollView:
+					MDList:
+						OneLineAvatarIconListItem:
+							text : 'New group call' # account-multiple
+							IconLeftWidget:
+								icon : 'account-multiple'
+						OneLineAvatarIconListItem:
+							text : 'New contact' # account-plus
+							IconLeftWidget:
+								icon : 'account-plus'
+
+		Screen:
+			name : 'select contact'
+			BoxLayout:
+				orientation: 'vertical'
+				MDTopAppBar:
+					id : toolbar
+					pos_hint: {'top': True}
+					title: 'Select contact'
+					right_action_items : [['magnify', lambda x : print('search')], ['dots-vertical', lambda x : print(x)]]
+					left_action_items : [['keyboard-backspace', lambda x : app.change_screen('home screen', 'back')]]
+				ScrollView:
+					MDList:
+						OneLineAvatarIconListItem:
+							text : 'New group'
+							IconLeftWidget:
+								icon : 'account-multiple'
+								md_bg_color : (0.145, 0.827, 0.4, 1)
+								size_hint: (1, 1)
+						OneLineAvatarIconListItem:
+							text : 'New contact'
+							IconLeftWidget:
+								icon : 'account-plus'
+								md_bg_color : (0.145, 0.827, 0.4, 1)
+								size_hint: (1, 1)								
+						TwoLineAvatarIconListItem:
+							text : 'Andrew Garfield'
+							secondary_text : 'Hey there! I am using WhatsApp.'
+							on_press:
+								app.change_screen('chat screen', title = self.text)
+							ImageLeftWidget:
+								source: 'avatar4.png'						
+						TwoLineAvatarIconListItem:
+							text : 'Juan Chacin'
+							secondary_text : 'Hey there! I am using WhatsApp.'
+							on_press:
+								app.change_screen('chat screen', title = self.text)
+							ImageLeftWidget:
+								source: 'avatar1.png'					
+						TwoLineAvatarIconListItem:
+							text : 'Daniel Abreu'
+							secondary_text : 'Hey there! I am using WhatsApp.'	
+							on_press:
+								app.change_screen('chat screen', title = self.text)
+							ImageLeftWidget:
+								source: 'avatar2.png'				
+						TwoLineAvatarIconListItem:
+							text : 'Leonardo Dicaprio'
+							secondary_text : 'Hey there! I am using WhatsApp.'
+							on_press:
+								app.change_screen('chat screen', title = self.text)
+							ImageLeftWidget:
+								source: 'avatar17.png'					
+						TwoLineAvatarIconListItem:
+							text : 'Tom Cruise'
+							secondary_text : 'Hey there! I am using WhatsApp.'
+							on_press:
+								app.change_screen('chat screen', title = self.text)
+							ImageLeftWidget:
+								source: 'avatar10.png'						
+						TwoLineAvatarIconListItem:
+							text : 'Margot Robbie'
+							secondary_text : 'Hey there! I am using WhatsApp.'	
+							on_press:
+								app.change_screen('chat screen', title = self.text)
+							ImageLeftWidget:
+								source: 'avatar16.png'				
+						TwoLineAvatarIconListItem:
+							text : 'Edgar Ramirez'
+							secondary_text : 'Hey there! I am using WhatsApp.'
+							on_press:
+								app.change_screen('chat screen', title = self.text)
+							ImageLeftWidget:
+								source: 'avatar12.png'						
+						TwoLineAvatarIconListItem:
+							text : 'Chris Hemsworth'
+							secondary_text : 'Hey there! I am using WhatsApp.'
+							on_press:
+								app.change_screen('chat screen', title = self.text)
+							ImageLeftWidget:
+								source: 'avatar7.png'						
+						TwoLineAvatarIconListItem:
+							text : 'Jennifer Aniston'
+							secondary_text : 'Hey there! I am using WhatsApp.'	
+							on_press:
+								app.change_screen('chat screen', title = self.text)
+							ImageLeftWidget:
+								source: 'avatar15.png'					
+						TwoLineAvatarIconListItem:
+							text : 'Will Smith'
+							secondary_text : 'Hey there! I am using WhatsApp.'
+							on_press:
+								app.change_screen('chat screen', title = self.text)
+							ImageLeftWidget:
+								source: 'avatar11.png'
+		Screen:
+			name : 'chat screen'	
+			BoxLayout:
+				orientation: 'vertical'
+				MDTopAppBar:
+					id : toolbar_chat_screen
+					pos_hint: {'top': True}
+					right_action_items : [['video', lambda x : print('video call')], ['phone', lambda x : print('calling..')], ['dots-vertical', lambda x : print('OPTIONS NOT ACCESSIBLE...')]]
+					left_action_items : [['keyboard-backspace', lambda x : app.change_screen('home screen', curr = 'back')]]
+				ScrollView:
+					MDList:
+						OneLineListItem:
+							text: 'hola como estas'
+							
+						OneLineListItem:
+							text: '                                                                                  Muy bien y tu?'
+						OneLineListItem:
+							text : 'excelente'
+						
+						
+			FloatLayout:
+				MDTextField:
+					hint_text : 'Type a message'
+					icon_left : 'emoticon-outline'
+					normal_color: 0, 0, 0, 0
+					color_active: 1, 1, 1, 1
+					icon_right : 'paperclip'
+					size_hint: (0.62, 0.10)
+					pos : root.x + self.height/1.5, root.y + self.height//5
+				MDFloatingActionButton:
+					md_bg_color : (0.145, 0.827, 0.4, 1)
+					text_color : (1, 1, 1, 1)
+					icon : 'microphone'
+					size : 45, 45
+					pos : root.width - 1.15*self.width, 0.2*self.width
+					size : 47, 47
+
+				MDFloatingActionButton:
+					md_bg_color : (0.145, 0.827, 0.4, 1)
+					text_color : (1, 1, 1, 1)
+					icon : 'camera'
+					size : 45, 45
+					pos : root.width - 2.3*self.width, 0.2*self.width
+					size : 47, 47
+		Screen: 
+			name: 'Video_reproductor1'
+			
+			Videos:
+			    id: video1
+			    source: 'Como mandar un mensaje.mp4'
+				MDTopAppBar:
+					id: toolbar_Video_reproductor1
+					pos_hint: {'bottom': True}
+					md_bg_color: (0, 0, 0, 1)
+					left_action_items: [['arrow-left', lambda x : app.change_screen('home screen', curr = 'back')]]
+					right_action_items: [['arrow-right', lambda x : app.change_screen('VR1 pantalla de decision', curr = 'back')]]
+
+		Screen: 
+			name: 'Video_reproductor2'
+			Videos:
+			    id: video2
+			    source: 'Como entrar a un chat.mp4'
+				MDTopAppBar:
+					id: toolbar_Video_reproductor1
+					pos_hint: {'bottom': True}
+					md_bg_color: (0, 0, 0, 1)
+					left_action_items: [['arrow-left', lambda x : app.change_screen('home screen', curr = 'back')]]
+					right_action_items: [['arrow-right', lambda x : app.change_screen('VR2 pantalla de decision', curr = 'back')]]
+
+		Screen: 
+			name: 'Video_reproductor3'
+			Videos:
+			    id: video3
+			    source: 'Actualizar perfil.mp4'
+				MDTopAppBar:
+					id: toolbar_Video_reproductor1
+					pos_hint: {'bottom': True}
+					md_bg_color: (0, 0, 0, 1)
+					left_action_items: [['arrow-left', lambda x : app.change_screen('home screen', curr = 'back')]]
+					right_action_items: [['arrow-right', lambda x : app.change_screen('VR3 pantalla de decision', curr = 'back')]]
+					
+		Screen: 
+			name: 'Video_reproductor4'
+			Videos:
+			    id: video4
+			    source: 'Cómo puedo enviar una foto.mp4'
+				MDTopAppBar:
+					id: toolbar_Video_reproductor1
+					pos_hint: {'bottom': True}
+					md_bg_color: (0, 0, 0, 1)
+					left_action_items: [['arrow-left', lambda x : app.change_screen('home screen', curr = 'back')]]
+					right_action_items: [['arrow-right', lambda x : app.change_screen('VR4 pantalla de decision', curr = 'back')]]
+
+		Screen: 
+			name: 'Video_reproductor5'
+			Videos:
+			    id: video5
+			    source: 'como grabar un audio.mp4'
+				MDTopAppBar:
+					id: toolbar_Video_reproductor1
+					pos_hint: {'bottom': True}
+					md_bg_color: (0, 0, 0, 1)
+					left_action_items: [['arrow-left', lambda x : app.change_screen('home screen', curr = 'back')]]
+					right_action_items: [['arrow-right', lambda x : app.change_screen('VR5 pantalla de decision', curr = 'back')]]
+
+		Screen: 
+			name: 'Video_reproductor6'
+			Videos:
+			    id: video6
+			    source: 'Como grabar un video.mp4'
+				MDTopAppBar:
+					id: toolbar_Video_reproductor1
+					pos_hint: {'bottom': True}
+					md_bg_color: (0, 0, 0, 1)
+					left_action_items: [['arrow-left', lambda x : app.change_screen('home screen', curr = 'back')]]
+					right_action_items: [['arrow-right', lambda x : app.change_screen('VR6 pantalla de decision', curr = 'back')]]
+
+		Screen: 
+			name: 'VR1 pantalla de decision'
+			FloatLayout:
+				canvas:
+					Color:
+						rgb: (0.15, 0.60, 0.40)
+					Rectangle:
+						size : self.size
+						pos : self.pos
+						
+				MDLabel:
+					text: 'Esta bien, ahora empecemos con la prueba!! Si quieres repasar haz click en la flecha que se encuentra en la parte izquierda, sino haz click en la derecha'
+					halign: 'center'
+					theme_text_color : 'Custom'
+					text_color : (1, 1, 1, 1)
+					font_size: '40sp'
+					
+					MDTopAppBar:
+						pos_hint: {'bottom': True}
+						md_bg_color: (0, 0, 0, 1)
+						left_action_items: [['arrow-left', lambda x : app.change_screen('Video_reproductor1', curr = 'back')]]
+						right_action_items: [['arrow-right', lambda x : app.change_screen('chat screen', curr = 'back')]]
+		Screen: 
+			name: 'VR2 pantalla de decision'
+			FloatLayout:
+				canvas:
+					Color:
+						rgb: (0.15, 0.60, 0.40)
+					Rectangle:
+						size : self.size
+						pos : self.pos
+						
+				MDLabel:
+					text: 'Esta bien, ahora empecemos con la prueba!! Si quieres repasar haz click en la flecha que se encuentra en la parte izquierda, sino haz click en la derecha'
+					halign: 'center'
+					theme_text_color : 'Custom'
+					text_color : (1, 1, 1, 1)
+					font_size: '40sp'
+					
+					MDTopAppBar:
+						pos_hint: {'bottom': True}
+						md_bg_color: (0, 0, 0, 1)
+						left_action_items: [['arrow-left', lambda x : app.change_screen('Video_reproductor2', curr = 'back')]]
+						right_action_items: [['arrow-right', lambda x : app.change_screen('home screen', curr = 'back')]]
+		Screen: 
+			name: 'VR3 pantalla de decision'
+			FloatLayout:
+				canvas:
+					Color:
+						rgb: (0.15, 0.60, 0.40)
+					Rectangle:
+						size : self.size
+						pos : self.pos
+						
+				MDLabel:
+					text: 'Esta bien, ahora empecemos con la prueba!! Si quieres repasar haz click en la flecha que se encuentra en la parte izquierda, sino haz click en la derecha'
+					halign: 'center'
+					theme_text_color : 'Custom'
+					text_color : (1, 1, 1, 1)
+					font_size: '40sp'
+					
+					MDTopAppBar:
+						pos_hint: {'bottom': True}
+						md_bg_color: (0, 0, 0, 1)
+						left_action_items: [['arrow-left', lambda x : app.change_screen('Video_reproductor3', curr = 'back')]]
+						right_action_items: [['arrow-right', lambda x : app.change_screen('home screen', curr = 'back')]]
+		Screen: 
+			name: 'VR4 pantalla de decision'
+			FloatLayout:
+				canvas:
+					Color:
+						rgb: (0.15, 0.60, 0.40)
+					Rectangle:
+						size : self.size
+						pos : self.pos
+						
+				MDLabel:
+					text: 'Esta bien, ahora empecemos con la prueba!! Si quieres repasar haz click en la flecha que se encuentra en la parte izquierda, sino haz click en la derecha'
+					halign: 'center'
+					theme_text_color : 'Custom'
+					text_color : (1, 1, 1, 1)
+					font_size: '40sp'
+					
+					MDTopAppBar:
+						pos_hint: {'bottom': True}
+						md_bg_color: (0, 0, 0, 1)
+						left_action_items: [['arrow-left', lambda x : app.change_screen('Video_reproductor4', curr = 'back')]]
+						right_action_items: [['arrow-right', lambda x : app.change_screen('home screen', curr = 'back')]]
+		Screen: 
+			name: 'VR5 pantalla de decision'
+			FloatLayout:
+				canvas:
+					Color:
+						rgb: (0.15, 0.60, 0.40)
+					Rectangle:
+						size : self.size
+						pos : self.pos
+						
+				MDLabel:
+					text: 'Esta bien, ahora empecemos con la prueba!! Si quieres repasar haz click en la flecha que se encuentra en la parte izquierda, sino haz click en la derecha'
+					halign: 'center'
+					theme_text_color : 'Custom'
+					text_color : (1, 1, 1, 1)
+					font_size: '40sp'
+					
+					MDTopAppBar:
+						pos_hint: {'bottom': True}
+						md_bg_color: (0, 0, 0, 1)
+						left_action_items: [['arrow-left', lambda x : app.change_screen('Video_reproductor5', curr = 'back')]]
+						right_action_items: [['arrow-right', lambda x : app.change_screen('chat screen', curr = 'back')]]
+
+		Screen: 
+			name: 'VR6 pantalla de decision'
+			FloatLayout:
+				canvas:
+					Color:
+						rgb: (0.15, 0.60, 0.40)
+					Rectangle:
+						size : self.size
+						pos : self.pos		
+			
+				MDLabel:
+					text: 'Esta bien, ahora empecemos con la prueba!! Si quieres repasar haz click en la flecha que se encuentra en la parte izquierda, sino haz click en la derecha'
+					halign: 'center'
+					theme_text_color : 'Custom'
+					text_color : (1, 1, 1, 1)
+					font_size: '40sp'
+					
+					MDTopAppBar:
+						pos_hint: {'bottom': True}
+						md_bg_color: (0, 0, 0, 1)
+						left_action_items: [['arrow-left', lambda x : app.change_screen('Video_reproductor6', curr = 'back')]]
+						right_action_items: [['arrow-right', lambda x : app.change_screen('chat screen', curr = 'back')]]
+			
